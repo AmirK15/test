@@ -1,0 +1,60 @@
+/** {*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*    box-sizing: border-box;*/
+/*    outline: none;*/
+/*    list-style: none;*/
+/*    text-decoration: none;*/
+/*}*/
+
+/*body {*/
+/*    font-family: "Roboto", sans-serif;*/
+/*    height: 100vh;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    background-color: dodgerblue;*/
+/*}*/
+
+/*.form {*/
+/*    width: 400px;*/
+/*    height: 500px;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: space-evenly;*/
+/*    background-color: #fff;*/
+/*    border-radius: 20px;*/
+/*    padding: 0 30px;*/
+/*}*/
+
+/*.form-title {*/
+/*    text-align: center;*/
+/*    color: dodgerblue;*/
+/*}*/
+
+/*.form-label {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+
+/*.form-btn {*/
+/*    width: 100px;*/
+/*    height: 40px;*/
+/*    margin: 0 auto;*/
+/*    color: black;*/
+/*    background: transparent;*/
+/*    border: 2px solid dodgerblue;*/
+/*    border-radius: 20px;*/
+/*    font-size: 18px;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.form-input {*/
+/*    height: 30px;*/
+/*    border: 0;*/
+/*    border-bottom: 1px solid;*/
+/*}*/
+
+/*.form-input::placeholder {*/
+/*    font-size: 18px;*/
+/*}*/
