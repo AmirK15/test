@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: 'Open Sans', sans-serif;
+}
+
+main{
+  height: 100vh;
+  position: relative;
+  background: rgb(114,75,255);
+  background: linear-gradient(90deg, rgba(114,75,255,1) 31%, rgba(193,33,255,1) 67%);
+}
