@@ -1,5 +1,5 @@
 import React, {Component, Suspense} from 'react';
-import Table from "../Table/Table";
+import Table from "./Table/Table";
 
 class Main extends Component {
     render() {
@@ -7,7 +7,7 @@ class Main extends Component {
             <main>
                 {/*<Suspense fallback={<div className='suspense'>Загрузка...</div>}>*/}
                 {/*Хотелось добавить Suspense для большей оптимизации, но по каким-то причинам он не работает(*/}
-                    <Table/>
+                    <Table data={this.props.data} setData={this.props.setData}/>
                 {/*</Suspense>*/}
             </main>
         );

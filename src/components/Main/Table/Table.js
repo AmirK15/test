@@ -1,25 +1,16 @@
-import React, { useEffect, useMemo, useState } from "react";
-import axios from "axios";
+import React, { useMemo, useState} from "react";
 import "./table.scss";
 
-const Table = () => {
-    const [shops, setShops] = useState([]);
+const Table = ({data, setData}) => {
+
     const [monthsValue, setMonthsValue] = useState(Array(12).fill(0));
 
-    useEffect(() => {
-        axios(`http://localhost:8080/shops`)
-            .then(({ data }) => {
-                setShops(data);
-            })
-            .catch((e) => alert(e));
-    }, []);
-
     const handleChangeValue = (e, shopIdx, monthIdx) => {
-        const newShops = [...shops];
+        const newShops = [...data];
         const oldMonthValue = newShops[shopIdx].months[monthIdx].value || 0;
         const diff = +e.target.value - oldMonthValue;
         newShops[shopIdx].months[monthIdx].value = +e.target.value;
-        setShops(newShops);
+        setData(newShops);
 
         const newValueMonth = [...monthsValue];
         newValueMonth[monthIdx] += diff;
@@ -27,28 +18,28 @@ const Table = () => {
     };
 
     const totalByMonth = useMemo(() => {
-        return shops.reduce((acc, item) => {
+        return data.reduce((acc, item) => {
             item.months.forEach((month, monthIdx) => {
                 const monthValue = month.value || 0;
                 acc[monthIdx] = (acc[monthIdx] || 0) + monthValue;
             });
             return acc;
         }, []);
-    }, [shops]);
+    }, [data]);
 
     return (
         <table className="table">
             <thead className="table__head">
             <tr>
                 <th>Shops</th>
-                {shops[0]?.months.map(({ id, name }) => (
+                {data[0]?.months.map(({ id, name }) => (
                     <th key={id}>{name}</th>
                 ))}
                 <th>Totals</th>
             </tr>
             </thead>
             <tbody>
-            {shops.map((item, shopIdx) => (
+            {data.sort((a, b) => a.store.id - b.store.id).map((item, shopIdx) => (
                 <tr key={shopIdx}>
                     <td>{item.store.name}</td>
                     {item.months.map((month, monthIdx) => (
@@ -71,13 +62,13 @@ const Table = () => {
             </tbody>
             <tfoot>
             <tr>
-                <td></td>
+                <td className="table__total">Totals</td>
                 {totalByMonth.map((item, idx) => (
                     <td className="table__total" key={idx}>
                         {item}
                     </td>
                 ))}
-                <td></td>
+                <td className="table__total">Total of totals</td>
             </tr>
             </tfoot>
         </table>
